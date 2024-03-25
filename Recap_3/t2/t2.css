@@ -25,6 +25,7 @@ label {
 input {
   position: absolute;
   margin: 1rem;
+  background-color: aqua;
 }
 
 input[type='checkbox']:checked + label {
