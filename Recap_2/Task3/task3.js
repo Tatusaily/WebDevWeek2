@@ -18,4 +18,8 @@ for (const num of numbers) {
     evenNumbers.push(num);
   }
 }
-console.log(`Even numbers: ${evenNumbers}`);
+if (evenNumbers.length > 0) {
+  console.log(`Even numbers: ${evenNumbers}`);
+} else {
+  console.log("No even numbers found.");
+}
