@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="task6.js" defer></script>
+    <link rel="stylesheet" href="task6.css">
+    <title>Task6: Movie Sorter</title>
+</head>
+<body>
+    <h1 style="text-align: center;">Week-2 Task6: Movie Sorter</h1>
+    <form id="movieform" onsubmit="finishMovies()">
+        <label for="movie">Enter a movie name:
+        <input type="text" id="movie" name="movie" required> </label>
+        <label for="rating">Enter the rating:
+        <input type="number" id="rating" name="rating" min="1" max="5" placeholder="1" required> </label>
+        <button type="button" id="addmovie">Add Movie</button>
+        <button type="submit">Finish</button>
+    </form>
+    <div id="outputDiv">
+    </div>
+</body>
+</html>
