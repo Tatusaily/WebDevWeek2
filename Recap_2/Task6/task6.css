@@ -26,6 +26,7 @@ label{
     justify-content: space-between;
 }
 #outputDiv{
+    margin: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -34,17 +35,17 @@ label{
     min-width: 5%;
 }
 #outputDiv table {
-    padding: 5px;
-    margin: 5px;
-    border-collapse: collapse;
     width: 100%;
-    border: 2px dashed black;
+    border: 1px solid black;
 }
-#outputDiv table, th, td {
-    margin: auto;
+table tr{
+    padding: 2px;
+}
+td{
     border-bottom: 1px solid black;
+    padding: 5px;
 }
-#outputDiv table tbody tr:first-child {
+#outputDiv table tbody tr:first-of-type {
     background-color: lightblue;
     text-transform: uppercase;
 }
