@@ -34,6 +34,7 @@ label{
     min-width: 5%;
 }
 #outputDiv table {
+    padding: 5px;
     margin: 5px;
     border-collapse: collapse;
     width: 100%;
@@ -42,4 +43,8 @@ label{
 #outputDiv table, th, td {
     margin: auto;
     border-bottom: 1px solid black;
+}
+#outputDiv table tbody tr:first-child {
+    background-color: lightblue;
+    text-transform: uppercase;
 }

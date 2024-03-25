@@ -10,6 +10,9 @@ function addMovie() {
 function finishMovies() {
   // prevent the default form submission
   event.preventDefault();
+
+  // sort the movies by rating in descending order
+  // and display them in a table in the HTML element
   movies.sort((a, b) => b.rating - a.rating);
   const table = document.createElement("table");
   for (const movie of movies) {
