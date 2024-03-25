@@ -20,6 +20,9 @@ for (const num of numbers) {
 }
 if (evenNumbers.length > 0) {
   console.log(`Even numbers: ${evenNumbers}`);
+  document.querySelector("#output").textContent =
+    `Even numbers: ${evenNumbers}`;
 } else {
   console.log("No even numbers found.");
+  document.querySelector("#output").textContent = `No Even Numbers Found :^(`;
 }
