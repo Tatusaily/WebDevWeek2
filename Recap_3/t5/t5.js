@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const restaurants = [
   {
     location: {type: 'Point', coordinates: [25.018456, 60.228982]},
@@ -771,3 +773,21 @@ const restaurants = [
 ];
 
 // your code here
+// MAIN
+
+const map = L.map('map').setView([60.1695, 24.9354], 10);
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  maxZoom: 19,
+  attribution:
+    '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+}).addTo(map);
+
+restaurants.forEach((resta) => {
+  const marker = L.marker([
+    resta.location.coordinates[1],
+    resta.location.coordinates[0],
+  ]).addTo(map);
+  marker.bindPopup(
+    `<b>${resta.name}</b><br>${resta.address}, ${resta.postalCode} ${resta.city}`
+  );
+});
