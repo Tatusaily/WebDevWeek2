@@ -24,3 +24,48 @@ td {
   border-bottom: 1px solid #ccc;
   padding: 0.5em 1em;
 }
+
+.highlight, .highlight *{
+  background-color: #ff0;
+  font-weight: bold;
+}
+
+/* GRID */
+dialog[open]{
+  width: 30%;
+  height: 30%;
+  display: grid;
+  grid-template-areas:
+    "name name"
+    "address address"
+    "postal-code city"
+    "company phone"
+    "close close";
+  box-shadow: 10px 10px;
+
+}
+#gridname {
+  grid-area: name;
+  justify-self: center;
+  align-self: center;
+  font-size: 1.5em;
+  
+}
+#gridaddress {
+  grid-area: address;
+}
+#gridcity {
+  grid-area: city;
+}
+#gridpostal {
+  grid-area: postal-code;
+}
+#gridcompany {
+  grid-area: company;
+}
+#gridphone {
+  grid-area: phone;
+}
+#gridclose {
+  grid-area: close;
+}

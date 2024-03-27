@@ -771,3 +771,63 @@ const restaurants = [
 ];
 
 // your code here
+function restAdder(restaurant, target){
+  // Get restaurant data
+  const name = restaurant.name;
+  const address = restaurant.address;
+
+  // Make HTML and add to table
+  const tr = document.createElement('tr');
+  const namefield = document.createElement('th');
+  namefield.textContent = name;
+  tr.appendChild(namefield);
+  const addressfield = document.createElement('th');
+  addressfield.textContent = address;
+  tr.appendChild(addressfield);
+
+    // user interactivity
+    tr.addEventListener('click', () => {
+      target.querySelectorAll('tr').forEach(tr => tr.classList.remove('highlight'));
+      console.log(name);
+      tr.classList.toggle('highlight');
+
+      updatedialog();
+      dialog.showModal();
+    });
+
+  target.appendChild(tr);
+}
+
+function updatedialog(){
+  const gridarea = document.querySelector('dialog');
+  // Clear dialog
+  gridarea.innerHTML = '';
+  // Get data and populate dialog window
+  const highlighted = document.querySelector('.highlight');
+  const restaurant = restaurants.find(restaurant => restaurant.name === highlighted.querySelector('th').textContent);
+  gridarea.appendChild(elementMaker('p', restaurant.name, 'gridname'));
+  gridarea.appendChild(elementMaker('p', restaurant.address, 'gridaddress'));
+  gridarea.appendChild(elementMaker('p', restaurant.postalCode, 'gridpostalCode'));
+  gridarea.appendChild(elementMaker('p', restaurant.city, 'gridcity'));
+  gridarea.appendChild(elementMaker('p', restaurant.phone, 'gridphone'));
+  gridarea.appendChild(elementMaker('p', restaurant.company, 'gridcompany'));
+  const closebutton = elementMaker('button', 'Close', 'close');
+  closebutton.addEventListener('click', () => gridarea.close());
+  gridarea.appendChild(closebutton);
+};
+
+// Quick HTML element maker
+function elementMaker(type, text, id){
+  const element = document.createElement(type);
+  element.textContent = text;
+  element.id = id;
+  return element;
+}
+
+// Sort and add restaurants to table
+const restaurantArea = document.querySelector('table');
+restaurants.sort((a, b) => a.name.localeCompare(b.name));
+restaurants.forEach(restaurant => {
+  restAdder(restaurant, restaurantArea);
+});
+const dialog = document.querySelector('dialog');
