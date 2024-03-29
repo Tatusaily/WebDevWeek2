@@ -771,6 +771,7 @@ const restaurants = [
 ];
 
 // your code here
+// Adds a restaurant to the table
 function restAdder(restaurant, target){
   // Get restaurant data
   const name = restaurant.name;
@@ -786,6 +787,7 @@ function restAdder(restaurant, target){
   tr.appendChild(addressfield);
 
     // user interactivity
+    // clicking on a restaurant highlights it and opens a dialog window
     tr.addEventListener('click', () => {
       target.querySelectorAll('tr').forEach(tr => tr.classList.remove('highlight'));
       console.log(name);
@@ -798,11 +800,13 @@ function restAdder(restaurant, target){
   target.appendChild(tr);
 }
 
+// Updates the content of the pop-up dialog window
 function updatedialog(){
+  // Clear old data from the dialog
+  // -> Fetch new data and format it into html code
+  // -> Add the new data to the dialog
   const gridarea = document.querySelector('dialog');
-  // Clear dialog
   gridarea.innerHTML = '';
-  // Get data and populate dialog window
   const highlighted = document.querySelector('.highlight');
   const restaurant = restaurants.find(restaurant => restaurant.name === highlighted.querySelector('th').textContent);
   gridarea.appendChild(elementMaker('p', restaurant.name, 'gridname'));
